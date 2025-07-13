@@ -1,0 +1,167 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'PT Mono', monospace;
+  font-size: 14px;
+  background: #fff;
+  color: #000;
+  line-height: 100%;
+  -webkit-font-smoothing: antialiased;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+p,
+pre,
+.ejemplos,
+h2 {
+  font-family: 'PT Mono', monospace;
+  font-size: 14px;
+  line-height: 20px;
+  color: black;
+  letter-spacing: -0.2px;
+  margin-bottom: 20px;
+}
+
+.main {
+  display: flex;
+  min-height: 100vh;
+  height: 100vh;
+}
+
+.Bar1 {
+  width: 25%;
+  position: relative;
+  overflow-y: auto;
+  padding: 60px;
+}
+
+.Bar2 {
+  width: 75%;
+  background: #000;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.Bar2 p {
+  color: #fff;
+  font-size: 100px;
+  line-height: 1.2;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: left;
+  max-width: 100%;
+  word-break: break-word;
+}
+
+.Bar1_inner,
+.links,
+.links_redes,
+.trabajos {
+  color: #000;
+}
+
+.links,
+.trabajos {
+  font-weight: bold;
+}
+
+.links_redes {
+  text-decoration: none;
+}
+
+.aframe {
+  display: block;
+  border: 0;
+}
+
+.header-container {
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  color: white;
+}
+
+.logo-img {
+  height: 52px;
+  margin: 0 10px;
+  color: white;
+}
+
+.movilelink {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  color: white;
+  font-weight: bold;
+}
+
+.botonera a {
+  letter-spacing: -0.3px;
+}
+
+.access-links {
+  display: none;
+}
+
+@media screen and (min-width: 700px) {
+  .header-container {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .main {
+    flex-direction: column-reverse;
+  }
+
+  .Bar1,
+  .Bar2 {
+    width: 100%;
+  }
+
+  .Bar1 {
+    padding: 30px;
+    min-height: 70vh;
+  }
+
+  .Bar2 {
+    height: 30vh;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .Bar2 p {
+    font-size: 16px;
+    line-height: 1.4;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: 100%;
+  }
+
+  .trabajos,
+  .sol {
+    display: none;
+  }
+
+  .botonera a {
+    font-size: 13px;
+    letter-spacing: -0.3px;
+  }
+}

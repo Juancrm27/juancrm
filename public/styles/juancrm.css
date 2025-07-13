@@ -135,11 +135,11 @@ h2 {
 
   .Bar1 {
     padding: 30px;
-    min-height: 70vh;
+    min-height: 40vh;
   }
 
   .Bar2 {
-    height: 30vh;
+    height: 60vh;
     padding: 0;
     display: flex;
     align-items: center;
@@ -149,9 +149,9 @@ h2 {
   .Bar2 p {
     font-size: 16px;
     line-height: 1.4;
-    text-align: center;
+    text-align: left;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 30px;
     max-width: 100%;
   }
 
@@ -165,3 +165,17 @@ h2 {
     letter-spacing: -0.3px;
   }
 }
+
+.ejemplos ul li {
+  font-family: 'PT Mono', monospace; /* Fuente */
+  font-size: 14px;                   /* Tamaño */
+  color: #000000;                    /* Color del texto */
+  margin-bottom: 10px;              /* Espaciado entre ítems */
+  list-style-type: square;          /* Tipo de viñeta */
+}
+
+.ejemplos ul li a {         
+  color: #000000;                   /* Color del link */
+  transition: color 0.3s ease;      /* Transición suave */
+}
+

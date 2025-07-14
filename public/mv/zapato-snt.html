@@ -1,143 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
-  
-  <head>
-    
-    <meta charset="UTF-8">
-    <title>SNT</title>
-    <meta name="description" content="Augmented Reality">
+<head>
+  <meta charset="UTF-8" />
+  <title>SNT</title>
+  <meta name="description" content="Augmented Reality">
 
-    <meta itemprop="name" content="21">
-    <meta itemprop="description" content="Studio specialized in creating immersive design WEB/AR.">
-    <meta itemprop="image" content="https://veintiuno.s3.us-east-2.amazonaws.com/assets/21logo.jpg">
+  <meta itemprop="name" content="21">
+  <meta itemprop="description" content="Studio specialized in creating immersive design WEB/AR.">
+  <meta itemprop="image" content="https://veintiuno.s3.us-east-2.amazonaws.com/assets/21logo.jpg">
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@veintiuno.studio_">
-    <meta name="twitter:creator" content="@veintiuno.studio_">
-    <meta name="twitter:title" content="21">
-    <meta name="twitter:description" content="Studio specialized in creating immersive design WEB/AR.">
-    <meta name="twitter:image" content="https://veintiuno.s3.us-east-2.amazonaws.com/assets/21logo.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@veintiuno.studio_">
+  <meta name="twitter:creator" content="@veintiuno.studio_">
+  <meta name="twitter:title" content="21">
+  <meta name="twitter:description" content="Studio specialized in creating immersive design WEB/AR.">
+  <meta name="twitter:image" content="https://veintiuno.s3.us-east-2.amazonaws.com/assets/21logo.jpg">
 
-    <meta property="”og:site_name”" content="”Juan" ramírez”="">
-    <meta property="”og:type”" content="”website”">
-    <meta property="”og:url”" content="”https://veintiuno.studio/">
-    <meta property="”og:title”" content="”21”/">
-    <meta property="”og:description”" content="”Studio" specialized="" in="" creating="" immersive="" design="" web="" ar.”="">
-    <meta property="”og:image”" content="”https://s3-us-west-2.amazonaws.com/juancrm.com/imageweb.jpg”">
+  <meta property="og:site_name" content="Juan Ramírez">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://veintiuno.studio/">
+  <meta property="og:title" content="21">
+  <meta property="og:description" content="Studio specialized in creating immersive design WEB/AR.">
+  <meta property="og:image" content="https://s3-us-west-2.amazonaws.com/juancrm.com/imageweb.jpg">
 
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" href="/assets/zapato_snt/icon.png">
-
-    
-    <!-- Loads <model-viewer> for modern browsers: -->
+  <!-- Loads <model-viewer> for modern browsers -->
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
-  <!-- Loads <model-viewer> for old browsers like IE11: -->
+  <!-- Loads <model-viewer> for old browsers like IE11 -->
   <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
 
-    
+  <!-- Web Components polyfill for Edge and Firefox < 63 -->
+  <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-loader.js"></script>
 
-    <!-- REQUIRED: Web Components polyfill to support Edge and Firefox < 63 -->
-    <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-loader.js"></script> 
+  <!-- Optional polyfills -->
+  <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+  <script src="https://unpkg.com/resize-observer-polyfill@1.5.0/dist/ResizeObserver.js"></script>
+  <script src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
 
-    <!-- OPTIONAL: Intersection Observer polyfill for better performance in Safari and IE11 -->
-     <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script> 
+  <!-- Script para forzar navegador externo desde Instagram -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const isInstagram = navigator.userAgent.includes("Instagram");
+      const link = document.getElementById("abrirExt");
 
-    <!-- OPTIONAL: Resize Observer polyfill improves resize behavior in non-Chrome browsers -->
-     <script src="https://unpkg.com/resize-observer-polyfill@1.5.0/dist/ResizeObserver.js"></script> 
-    
-    <!-- OPTIONAL: The :focus-visible polyfill removes the focus ring for some input types -->
-    <script src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
-    
+      if (isInstagram) {
+        link.setAttribute("download", "");
+      }
+    });
+  </script>
 
-    <style>
-  .credit {
-    position: fixed;
-    bottom: 10px;
-    left: 10px;
-    font-size: 14px;
-    color: #333;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 5px 10px;
-    border-radius: 6px;
-    font-family: sans-serif;
-    z-index: 1000;
-    transition: all 0.3s ease;
-  }
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: sans-serif;
+    }
 
-  .credit:hover {
-    color: black;
-    background-color: white;
-    box-shadow: 0 0 5px rgba(0,0,0,0.2);
-  }
-</style>
+    .credit {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      font-size: 14px;
+      color: #333;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 5px 10px;
+      border-radius: 6px;
+      z-index: 1000;
+    }
 
+    .credit:hover {
+      color: black;
+      background-color: white;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    }
 
+    .external-button {
+      position: fixed;
+      bottom: 16px;
+      right: 16px;
+      padding: 12px 24px;
+      background: black;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      text-decoration: none;
+      z-index: 1000;
+    }
+  </style>
+</head>
 
+<body>
 
-  </head>
-    
-    
-
-  <body>
-
-    <a href="https://www.instagram.com/juancrm__/" target="_blank" class="credit">
-    AR by juancrm©
-    </a>
-
-    
-
-    
-    <model-viewer style="top: 0;
-                         left: 0;
-                         width: 100%; height: 100%;
-                         background-color: #ffffff;
-                         visibility: visible;
-                         position: absolute;"
-                  bounds="tight" 
-                  src="/assets/zapato_snt/zapatos_snt.glb" 
-                  ios-src="/assets/zapato_snt/zapatos_snt.usdz"
-                  ar 
-                  ar-modes="scene-viewer webxr quick-look"
-                  camera-controls poster="poster.webp" 
-                  exposure="1"
-                  shadow-intensity="1"
-                  shadow-softness="1"
-                  environment-image="neutral"
-                  auto-rotate>
+  <!-- Modelo 3D -->
+  <model-viewer 
+    style="width: 100vw; height: 100vh; background-color: #ffffff; position: absolute; top: 0; left: 0;"
+    bounds="tight" 
+    src="/assets/zapato_snt/zapatos_snt.glb" 
+    ios-src="/assets/zapato_snt/zapatos_snt.usdz"
+    ar 
+    ar-modes="scene-viewer webxr quick-look"
+    camera-controls 
+    poster="poster.webp" 
+    exposure="1"
+    shadow-intensity="1"
+    shadow-softness="1"
+    environment-image="neutral"
+    auto-rotate>
 
     <div class="progress-bar hide" slot="progress-bar">
-        <div class="update-bar"></div>
+      <div class="update-bar"></div>
     </div>
-     <button slot="ar-button"
-             style="color:white;
-                    font-size: 14px;
-                    font-weight: bold;
-                    background-color: black;
-                    padding: 10px 38px;
-                    border-radius: 10px; 
-                    border: none;
-                    position: absolute; bottom: 16px; right: 16px;">
-              Iniciar AR
-      </button>
-    
-</model-viewer>
 
-    
-    
-    
+    <button slot="ar-button"
+            style="color:white;
+                   font-size: 14px;
+                   font-weight: bold;
+                   background-color: black;
+                   padding: 10px 38px;
+                   border-radius: 10px; 
+                   border: none;
+                   position: absolute; bottom: 16px; right: 16px;">
+      Iniciar AR
+    </button>
+  </model-viewer>
 
-  </body>
-  
-  </html>
+  <!-- Botón para intentar abrir en navegador externo -->
+  <a id="abrirExt"
+     class="external-button"
+     href="https://juancrm.com/mv/zapato-snt"
+     target="_blank">
+    Iniciar AR
+  </a>
 
+  <!-- Crédito -->
+  <a href="https://www.instagram.com/juancrm__/" target="_blank" class="credit">
+    AR by juancrm©
+  </a>
 
-                    
-
-
-
-
-
-
+</body>
+</html>
